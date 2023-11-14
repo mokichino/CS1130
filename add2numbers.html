@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <title>Add 2 numbers</title>
+ </head>
+
+<body>
+
+<h1>Add 2 Numbers</h1><br>
+
+    <label for ="fname">First number:</label>
+    <input type ="number" id="n1" onkeyup="computesum()"><br>
+    <label for ="fname">Second number:</label>
+    <input type ="number" id="n2" onkeyup="computesum()">
+<!-- <button onclick="computesum()">Compute Sum</button> -->
+    <button onclick="clearvalues()">Clear</button> <br>
+
+    <label for ="fname">Sum:</label>
+    <input id="sum" readonly type="number"><br>
+    <br>
+<a href = "index.html">Back to Home Page</a>
+
+<script>
+
+function computesum()
+{
+    var n1,n2,sum;
+    
+    //console.log("1.passed here");
+    n1 = document.getElementById("n1").value*1;
+    //n1s = 'value:  ' + n1; converts to a string
+    //console.log(n1);
+    n2 = document.getElementById("n2").value*1;
+    sum = n1+n2;
+
+    document.getElementById("sum").value = sum;
+}
+
+function clearvalues()
+{
+    document.getElementById("n1").value= '';
+    document.getElementById("n2").value= '';
+    document.getElementById("sum").value= '';
+}
+
+</script>
+
+</body>
+ </html>
