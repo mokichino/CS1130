@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th style = "text-align:left" > Item</th>
+				<th> Quantity</th>
+				<th style = "text-align:right"> Price</th>
+				<th>Amount</th>
+			</tr>
+		</thead>	
+		<tr>
+			<td>1</td>
+			<td>Noodles</td>
+			<td style = "text-align:right">2</td>
+			<td style = "text-align:right">13</td>
+			<td style = "text-align:right">26</td>
+			
+		</tr>
+		
+		<tr>
+			<td>2</td>
+			<td>Toothpaste</td>
+			<td style = "text-align:right">4</td>
+			<td style = "text-align:right">5</td>
+			<td style = "text-align:right">20</td>
+			
+		</tr>
+		
+		<tfoot>
+			<tr>
+				<th>Items</th>
+				<th>20</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		<t/foot>
+			
+	
+	</table>
+
+</body>
+</html>
