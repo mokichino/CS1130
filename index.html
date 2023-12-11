@@ -1,107 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Introduction to Computing Website</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-</style>
-<body>
 
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
- 
-   
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">Input Examples<i class="fa fa-caret-down"></i></button>     
-           <div class="w3-dropdown-content w3-bar-block w3-card-4">
-             <a href="add2numbers.html" class="w3-bar-item w3-button">Add 2 numbers</a>
-             <a href="gradecomputation.html" class="w3-bar-item w3-button">Compute Grade</a>
-            <a href="#" class="w3-bar-item w3-button">Meters to Feet</a>
-            <a href="#" class="w3-bar-item w3-button">Feet to Meters</a>
-      </div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator.io</title>
 
-   
-   
-  </div>
-</div>
+  <!-- Add a link to the Montserrat font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
 
-<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">The Course</a>
-</div>
+  <style>
+    /* CSS styles for the layout */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      height: 1000px;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-<!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+    /* Media queries for different screen sizes */
+    @media (max-width: 600px) {
+      header,
+      main,
+      footer {
+        padding: 10px;
+      }
+    }
 
-   <!-- The Band Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">CS 1130 - Introduction to Computing</h2>
-     <br>
-     <h2>
-     Student Assignments:  
-     </h2>
-      <br>
-      <h3>Assignment #1 - Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to Meters)</h3>
-      <h3>Assignment #2 - Income Tax Calculator </h3>
-      <h3>Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural Numbers</h3>
-      <h3>Assignment #4 - Simple Payroll </h3>
+    @media (min-width: 601px) and (max-width: 1200px) {
+      header,
+      main,
+      footer {
+        padding: 15px;
+      }
+    }
 
-      <br>
-      <h2>*** All Assignments are Due on December 6, 2023 *** </h2>
-      <h4> Upload and launch the pages in your specified github  or w3spaces website. </h4>
-     
+    @media (min-width: 1201px) {
+      header,
+      main,
+      footer {
+        padding: 20px;
+      }
+    }
+
+    /* Header */
+    .Logo {
+      background-color: #bde4ed;
+      padding: 10px;
+      text-align: center;
+      color: #023653;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 7px;
+    }
+
+    /* CSS property for navigation menu */
+
+    .nav_menu {
+      overflow: hidden;
+      background-color: #bde4ed;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+    }
+
+    .nav_menu a {
+      float: left;
+      display: block;
+      color: #023653;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .nav_menu a:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+      color: #023653;
+    }
+
+    .nav_menu a.split {
+      float: right;
+      background-color:  #03566d;
+      color: white;
+    }
+
+    .nav_menu a.split:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+    }
+    
+    .nav_menu a.active {
+      color: #bfddf1;
+    }
 
 
-  </div>
+    .active {
+      background-color: #03566d;
+    }
+
+    
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    footer {
+      background-color: #bde4ed;
+      padding: 10px;
+      min-height: .5vh;
+      text-align: center;
+      color: #023653; /* Change the color of the footer text */
+  }
+
+  footer i {
+    color: #023653; /* Change the color of the footer icons */
+  }
+    
+  </style>
+
+  <style>
+    .container1 {
+      float: left;
+      width: 25%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .container1 img {
+      display: block;
+      width: 100%;
+      height: 500px;
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      background-color: #023653;
+    }
+    
+    .container1:hover .overlay {
+      opacity: 0.7;
+    }
+    
+    
+    /*CONTAINER 2*/
+
+    .container2 {
+      float: left;
+      width: 25%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .container2 img {
+      display: block;
+      width: 100%;
+      height: 500px;
+    }
+    
+    .overlay2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      background-color: #023653;
+    }
+    
+    .container2:hover .overlay2 {
+      opacity: 0.7;
+    }
+    
+
+
+     /*CONTAINER 3*/
+
+     .container3 {
+      float: left;
+      width: 25%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .container3 img {
+      display: block;
+      width: 100%;
+      height: 500px;
+    }
+    
+    .overlay3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      background-color: #023653;
+    }
+    
+    .container3:hover .overlay3 {
+      opacity: 0.7;
+    }
+    
 
   
-<!-- End Page Content -->
-</div>
+    /*CONTAINER 4*/
 
-<script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
+     .container4 {
+      float: left;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .container4 img {
+      display: block;
+      width: 100%;
+      height: 500px;
+    }
+    
+    .overlay4 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      background-color: #023653;
+      backdrop-filter: blur(100%); /* Add blur effect */
+    }
+    
+    .container4:hover .overlay4 {
+      opacity: 0.7;
+    }
+    
 
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
+    
 
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
+    /* Add styles for the description inside the image box */
+    .text {
+      color: white;
+      font-size: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
 
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+    .description {
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 15px;
+      font-weight: lighter;
+      font-style: italic;
+      font-family: "Open Sans", sans-serif;
+      opacity: 1; /* Initially hidden */
+      transition: opacity 0.5s ease;
+    }
+
+    .container:hover .description {
+      opacity: 1; /* Display on hover */
+    }
+
+   
+  </style>
+
+</head>
+
+<body>
+
+  <div class="Logo"><h2>Calculator.io</h2></div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <div class="nav_menu" id="nav_menu">
+    <a class="active" href="index.html"><i class="fa fa-fw fa-home" style="color: white;"></i></a>
+    <a href="conversion.html">Conversion</a>
+    <a href="tax.html">Income Tax</a>
+    <a href="factorial.html">Finding Nth Factorial</a>
+    <a href="payroll.html">Simple Payroll</a>
+    <a href="about.html" class="split">About</a>
+  </div>
+
+ 
+
+  <main>
+
+    <section id="conversion_img">
+      <div class="container1">
+        <a href="conversion.html">
+          <img src="https://images.unsplash.com/photo-1582572186057-0e74d3c715ea?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Conversion Calculator" width="90%" height="500 pax">
+          <div class="overlay">
+            <div class="text">Conversion Calculator</div>
+            <div class="description">Converts between fahrenheit-celcius and feet-meters, vice versa.</div>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <section id="tax_img">
+      <div class="container2">
+        <a href="tax.html">
+          <img src="https://images.pexels.com/photos/6963846/pexels-photo-6963846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tax Calculator" width="90%" height="500px">
+          <div class="overlay2">
+            <div class="text">Income Tax</div>
+            <div class="description">Calculates the income tax of a person based on their income.</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="factorial_img">
+      <div class="container3">
+        <a href="factorial.html">
+        <img src="https://images.pexels.com/photos/4240497/pexels-photo-4240497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Factorial..." width="90%" height="500px">
+        <div class="overlay3">
+          <div class="text">Finding Nth Factorial</div>
+          <div class="description">Calculates the factorial, average, and sum of the First Natural numbers.</div>
+        </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="payroll_img" style="width: 25%; float: left">
+      <div class="container4">
+        <a href="payroll.html">
+        <img src="https://images.pexels.com/photos/6694485/pexels-photo-6694485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Simple Calculator" width="90%" height="500px">
+        <div class="overlay4">
+          <div class="text">Simple Payroll</div>
+          <div class="description">Calculates the payroll of an employee based on their hours worked and hourly rate.</div>
+        </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>@mokichino</p>
+    <i class="fa fa-fw fa-facebook"></i>
+    <i class="fa fa-fw fa-instagram"></i>
+    <i class="fa fa-fw fa-twitter"></i>
+    <i class="fa fa-fw fa-github"></i>
+  </footer>
+
+  <script>
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', function () {
+      const st = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (st > lastScrollTop) {
+        // Scroll down, hide header with ease-in animation
+        document.querySelector('.Logo').classList.add('hide-header');
+        document.querySelector('.nav_menu').style.transform = 'translateY(-100%)';
+        document.querySelector('.nav_menu2').style.transform = 'translateY(-100%)';
+        document.querySelector('.Logo').style.transition = 'transform 0.8s ease-in';
+        document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-in';
+        document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-in';
+      } else {
+        // Scroll up, show header with ease-in animation
+        document.querySelector('.Logo').classList.remove('hide-header');
+        document.querySelector('.nav_menu').style.transform = 'translateY(0)';
+        document.querySelector('.nav_menu2').style.transform = 'translateY(0)';
+        document.querySelector('.Logo').style.transition = 'transform 0.8s ease-out';
+        document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-out';
+        document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-out';
+      }
+
+      lastScrollTop = st;
+    });
+  </script>
 
 </body>
+
 </html>
