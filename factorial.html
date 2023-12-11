@@ -109,7 +109,7 @@
       padding: 20px;
       text-align: center;
       font-size: 1.2em;
-      color:#023653;
+      color: #023653;
     }
 
 
@@ -127,13 +127,12 @@
       background-color: #023653;
     }
 
-   
-
     footer {
       background-color: #bde4ed;
       padding: 10px;
       min-height: .5vh;
       text-align: center;
+      font-style: bold;
       font-family: montserrat, san-serif;
       color: #023653; /* Change the color of the footer text */
   }
@@ -147,7 +146,7 @@
     .transparent-box {
       background-color: #ffffff;
       padding: 10px;
-      width: 50%;
+      width: 40%;
       margin: auto;
       text-align: center;
       box-shadow: 0 0 10px   rgba(0, 0, 0, 0.5);
@@ -161,35 +160,106 @@
     
     
     <div class="Logo"><h2>Calculator.io</h2></div>
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="nav_menu">
-        <a href="index.html"><i class="fa fa-fw fa-home"></i></a>
+      <a href="index.html"><i class="fa fa-fw fa-home"></i></a>
         <a href="conversion.html">Conversion</a>
-        <a class="active" href="tax.html">Income Tax</a>
-        <a href="factorial.html">Finding Nth Factorial</a>
+        <a href="tax.html">Income Tax</a>
+        <a  class="active" href="factorial.html">Finding Nth Factorial</a>
         <a href="payroll.html">Simple Payroll</a>
         <a href="about.html" class="split">About</a>
     </div>
 
    
     <main>
-        <h1>Income tax calculator</h1>
+      
+        <h1>Find the Nth Factorial</h1>
         <br><br>
-        <div class="transparent-box">  
-            
-            <p>Calculate your income tax</p>
+        <div class="transparent-box">
+          <br>
+          <label class="lab" for="nth">Enter the first number: </label>
+          <input class="ent" type="text" id="nth" placeholder="Enter the value">
+          <button id="btn" class="ent" onclick="calc()">Calculate</button>
+          <br><br>
+        </div>
+        <div class="transparent-box">
+          <h4 id="Fresult"></p>
+          <h4 id="Sresult"></p>
+          <h4 id="Aresult"></p>
+        </div>
 
-            <label class="lab" for="taxs">Input your taxable income: </label>
-            <input class="ent" type="text" id="taxs" placeholder="Enter the value">
-            <button id="btn" onclick="calc()">Calculate</button>
-            <br><br>
-          </div> <!-- Add closing tag for the inner div -->
+    <script>
 
-          <div class="transparent-box">
-            <h2 id="result"></h2> <!-- Correct closing tag for the h2 element -->
-          </div>
-    
+      let lastScrollTop = 0;
+
+      window.addEventListener('scroll', function () {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+  
+        if (st > lastScrollTop) {
+          // Scroll down, hide header with ease-in animation
+          document.querySelector('.Logo').classList.add('hide-header');
+          document.querySelector('.nav_menu').style.transform = 'translateY(-100%)';
+          document.querySelector('.nav_menu2').style.transform = 'translateY(-100%)';
+          document.querySelector('.Logo').style.transition = 'transform 0.8s ease-in';
+          document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-in';
+          document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-in';
+        } else {
+          // Scroll up, show header with ease-in animation
+          document.querySelector('.Logo').classList.remove('hide-header');
+          document.querySelector('.nav_menu').style.transform = 'translateY(0)';
+          document.querySelector('.nav_menu2').style.transform = 'translateY(0)';
+          document.querySelector('.Logo').style.transition = 'transform 0.8s ease-out';
+          document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-out';
+          document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-out';
+        }
+  
+        lastScrollTop = st;
+      });
+
+        function calc(){
+
+            var x = parseFloat(document.getElementById("nth").value);
+
+            console.log("1. Passed here.");
+            if (isNaN(x)) {
+                    alert("Please enter a valid number for taxable income.");
+                    return;
+
+            } 
+        // 1st
+            var factorial = 1;
+            var i = 1;
+
+            while (i <= x){
+                factorial *= i; 
+                i++;
+            }
+            document.getElementById("Fresult").innerHTML = "The Factorial is: " + factorial.toFixed(2);
+        // 2nd
+            var sum = 0;
+            var o = 1;
+
+            do{
+            sum += o;
+            o++;
+             
+            }while ( o <= x);
+            document.getElementById("Sresult").innerHTML = "The Sum is: " + sum.toFixed(2);
+        // 3rd
+            var all = 0;
+            var avg;
+            for (p = 1; p <= x; p++){
+                all += p;
+            }
+            avg = all / x;
+            document.getElementById("Aresult").innerHTML = "The Average is: " + avg.toFixed(2);
+
+
+
+    }
+    </script>
     </main>
 
     <footer>
@@ -200,78 +270,4 @@
       <i class="fa fa-fw fa-github"></i>
     </footer>
   </body>
-
-  
-  <script>
-
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', function () {
-      const st = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (st > lastScrollTop) {
-        // Scroll down, hide header with ease-in animation
-        document.querySelector('.Logo').classList.add('hide-header');
-        document.querySelector('.nav_menu').style.transform = 'translateY(-100%)';
-        document.querySelector('.nav_menu2').style.transform = 'translateY(-100%)';
-        document.querySelector('.Logo').style.transition = 'transform 0.8s ease-in';
-        document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-in';
-        document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-in';
-      } else {
-        // Scroll up, show header with ease-in animation
-        document.querySelector('.Logo').classList.remove('hide-header');
-        document.querySelector('.nav_menu').style.transform = 'translateY(0)';
-        document.querySelector('.nav_menu2').style.transform = 'translateY(0)';
-        document.querySelector('.Logo').style.transition = 'transform 0.8s ease-out';
-        document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-out';
-        document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-out';
-      }
-
-      lastScrollTop = st;
-    });
-
-
-    function calc() {
-        var rate;
-        var tax = parseFloat(document.getElementById("taxs").value);
-
-        console.log("1. Passed here.");
-
-        if (isNaN(tax)) {
-            alert("Please enter a valid number for taxable income.");
-            return;
-        }
-
-        if (tax <= 250000) {
-            document.getElementById("result").innerHTML = "Your Income tax is: 0.00";
-        }
-        else if (tax <= 400000){
-            result = 0 + 0.20 * (tax - 250000);
-            document.getElementById("result").innerHTML = "Your Income Tax: " + result.toFixed(2);
-        }
-        else if (tax <= 800000){
-            rate = 0.25 * (tax - 400000);
-            result = 30000 + rate;
-            document.getElementById("result").innerHTML = "Your Income tax is: " + result.toFixed(2);
-        }
-        else if (tax <= 2000000){
-            rate = 0.30 * (tax - 800000);
-            result = 130000 + rate;
-            document.getElementById("result").innerHTML = "Your Income tax is: " + result.toFixed(2);
-        }
-        else if (tax <= 8000000){
-            rate = 0.32 * (tax - 2000000);
-            result = 490000 + rate
-            document.getElementById("result").innerHTML = "Your Income tax is: " + result.toFixed(2);
-        }
-        else{
-            rate = 0.35 * (tax - 8000000);
-            result = 2410000 + rate
-            document.getElementById("result").innerHTML = "Your Income tax is: " + result.toFixed(2);
-        }
-
-
-    }
-</script>
-
   </html>
