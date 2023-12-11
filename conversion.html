@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Calculator.io</title>  
+
+   <!-- Add a link to the Montserrat font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
+
+  <style>
+    /* CSS styles for the layout */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      height: 890px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Media queries for different screen sizes */
+    @media (max-width: 600px) {
+      header,
+      main,
+      footer {
+        padding: 10px;
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 1200px) {
+      header,
+      main,
+      footer {
+        padding: 15px;
+      }
+    }
+
+    @media (min-width: 1201px) {
+      header,
+      main,
+      footer {
+        padding: 20px;
+      }
+    }
+
+    /* Header */
+    .Logo {
+      background-color: #bde4ed;
+      padding: 10px;
+      text-align: center;
+      color: #023653;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .5em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 7px;
+    }
+
+    /* CSS property for navigation menu */
+    .nav_menu2 {
+      height: 50px;
+      background-color: #ffffff;
+    }
+
+    .nav_menu {
+      overflow: hidden;
+      background-color: #bde4ed;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+    }
+
+    .nav_menu a {
+      float: left;
+      display: block;
+      color: #023653;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .nav_menu a:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+      color: #023653;
+    }
+
+    .nav_menu a.split {
+      float: right;
+      background-color:  #03566d;
+      color: white;
+    }
+
+    .nav_menu a.split:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+    }
+
+    .nav_menu a.active {
+      color: #bfddf1;
+    }
+
+
+    .active {
+      background-color: #03566d;
+    }
+
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2em;
+      
+    }
+
+    h1{
+      color: #023653;
+    }
+  
+    #result{
+      font-family: 'Montserrat', sans-serif;
+      color: #023653;
+    }
+
+    .custom{
+      color: #023653;
+      font-weight: lighter;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    footer {
+      background-color: #bde4ed;
+      padding: 10px;
+      min-height: .5vh;
+      text-align: center;
+      color: #023653; /* Change the color of the footer text */
+  }
+
+  footer i {
+    color: #023653; /* Change the color of the footer icons */
+  }
+    
+ 
+
+    /* CSS styles for the calculator */
+    .transparent-box {
+      background-color: #ffffff;
+      padding: 10px;
+      width: 40%;
+      margin: auto;
+      text-align: center;
+      box-shadow: 0 0 10px   rgba(0, 0, 0, 0.5);
+      /*border: 1px solid black; /* Added box outline */
+    }
+
+    .btn {
+      background-color: #03566d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .btn:hover {
+      background-color: #023653;
+    }
+
+    .select-custom{
+      color: #023653;
+    }
+
+    </style>
+  
+  </head>
+  <body>
+    
+    
+    <div class="Logo"><h2>Calculator.io</h2></div>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="nav_menu">
+      <a  href="index.html"><i class="fa fa-fw fa-home"></i></a>
+      <a class="active" href="conversion.html">Conversion</a>
+      <a href="tax.html">Income Tax</a>
+      <a href="factorial.html">Finding Nth Factorial</a>
+      <a href="payroll.html">Simple Payroll</a>
+      <a href="about.html" class="split">About</a>
+    </div>
+
+   
+    <main>
+      <h1>Simple Computations</h1>
+      <br><br>
+      <div class="transparent-box">  
+      <br>
+          <label id="custom" class="custom" for="typeconv">Please select Conversion Type:</label>
+        
+      <select class="select-custom" id="typeconv">
+        <option value="FahtoC">Fahrenheit to Celsius</option>
+        <option value="CeltoFah">Celsius to Fahrenheit</option>
+        <option value="MetoFe">Meters to Feet</option>
+        <option value="FetoMe">Feet to Meters</option>
+      </select>
+      <br><br>
+      <label id ="custom" class="custom" for="inV">Enter a value:</label>
+      <input type="text" id="inV" placeholder="Enter the value">
+      <button class="btn" onclick="convert()">Convert</button>
+
+       <br><br>
+
+      </div>
+      <div class="transparent-box"> 
+        <h3 id="result"></h3>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>@mokichino</p>
+      <i class="fa fa-fw fa-facebook"></i>
+      <i class="fa fa-fw fa-instagram"></i>
+      <i class="fa fa-fw fa-twitter"></i>
+      <i class="fa fa-fw fa-github"></i>
+    </footer>
+
+    <script>
+      // Auto-hide header on scroll
+      let lastScrollTop = 0;
+
+      window.addEventListener('scroll', function () {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (st > lastScrollTop) {
+          // Scroll down, hide header with ease-in animation
+          document.querySelector('.Logo').classList.add('hide-header');
+          document.querySelector('.nav_menu').style.transform = 'translateY(-100%)';
+          document.querySelector('.nav_menu2').style.transform = 'translateY(-100%)';
+          document.querySelector('.Logo').style.transition = 'transform 0.8s ease-in';
+          document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-in';
+          document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-in';
+        } else {
+          // Scroll up, show header with ease-in animation
+          document.querySelector('.Logo').classList.remove('hide-header');
+          document.querySelector('.nav_menu').style.transform = 'translateY(0)';
+          document.querySelector('.nav_menu2').style.transform = 'translateY(0)';
+          document.querySelector('.Logo').style.transition = 'transform 0.8s ease-out';
+          document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-out';
+          document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-out';
+        }
+
+        lastScrollTop = st;
+      });
+
+    window.addEventListener('scroll', function () {
+      const st = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (st > lastScrollTop) {
+        // Scroll down, hide header with ease-in animation
+        document.querySelector('.Logo').classList.add('hide-header');
+        document.querySelector('.nav_menu').style.transform = 'translateY(-100%)';
+        document.querySelector('.nav_menu2').style.transform = 'translateY(-100%)';
+        document.querySelector('.Logo').style.transition = 'transform 0.8s ease-in';
+        document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-in';
+        document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-in';
+      } else {
+        // Scroll up, show header with ease-in animation
+        document.querySelector('.Logo').classList.remove('hide-header');
+        document.querySelector('.nav_menu').style.transform = 'translateY(0)';
+        document.querySelector('.nav_menu2').style.transform = 'translateY(0)';
+        document.querySelector('.Logo').style.transition = 'transform 0.8s ease-out';
+        document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-out';
+        document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-out';
+      }
+
+      lastScrollTop = st;
+    });
+    </script>
+  </body>
+
+      <!-- CODE OF JS For all conversions using switch case-->
+      <script>
+
+        function convert() {
+             var typeconv = document.getElementById("typeconv").value;
+             var inV = parseFloat(document.getElementById("inV").value);
+             //checks if value inputed is a number
+             if (isNaN(inV)) {
+                 alert("Please enter a valid number for conversion.");
+                 return;
+             }
+ 
+             var result;
+ 
+             switch (typeconv) {
+                 case "FahtoC":
+                     result = (inV - 32) * 5 / 9;
+                     document.getElementById("result").innerHTML = inV + "°F is equal to " + result.toFixed(2) + "°C";
+                     break;
+                 case "CeltoFah":
+                     result = (inV * 9 / 5) + 32;
+                     document.getElementById("result").innerHTML = inV+ "°C is equal to " + result.toFixed(2) + "°F";
+                     break;
+                 case "MetoFe":
+                     result = inV * 3.281;
+                     document.getElementById("result").innerHTML = inV+ " meters is equal to " + result.toFixed(2) + " feet";
+                     break;
+                 case "FetoMe":
+                     result = inV / 3.281;
+                     document.getElementById("result").innerHTML = inV + " feet is equal to " + result.toFixed(2) + " meters";
+                     break;
+                 default:
+                     alert("Invalid conversion type.");
+                     break;
+             }
+         }
+     </script>
+
+     <script>
+      
+        let lastScrollTop = 0;
+      
+        window.addEventListener('scroll', function () {
+          const st = window.pageYOffset || document.documentElement.scrollTop;
+      
+          if (st > lastScrollTop) {
+            // Scroll down, hide header with ease-in animation
+            document.querySelector('.Logo').classList.add('hide-header');
+            document.querySelector('.nav_menu').style.transform = 'translateY(-100%)';
+            document.querySelector('.nav_menu2').style.transform = 'translateY(-100%)';
+            document.querySelector('.Logo').style.transition = 'transform 0.8s ease-in';
+            document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-in';
+            document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-in';
+          } else {
+            // Scroll up, show header with ease-in animation
+            document.querySelector('.Logo').classList.remove('hide-header');
+            document.querySelector('.nav_menu').style.transform = 'translateY(0)';
+            document.querySelector('.nav_menu2').style.transform = 'translateY(0)';
+            document.querySelector('.Logo').style.transition = 'transform 0.8s ease-out';
+            document.querySelector('.nav_menu').style.transition = 'transform 0.8s ease-out';
+            document.querySelector('.nav_menu2').style.transition = 'transform 0.8s ease-out';
+          }
+      
+          lastScrollTop = st;
+        });
+      
+     </script>
+  </html>
