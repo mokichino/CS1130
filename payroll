@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <title>Calculator.io</title>    
+
+    <style>
+      /* CSS styles for the layout */
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh; /* Set body height to at least 100% of viewport height */
+        display: flex;
+        flex-direction: column;
+        height: 1000px
+      }
+
+      /* Media queries for different screen sizes */
+      @media (max-width: 600px) {
+        /* Styles for screens up to 600px wide */
+        header, main, footer {
+          padding: 10px;
+        }
+      }
+
+      @media (min-width: 601px) and (max-width: 1200px) {
+        /* Styles for screens between 601px and 1200px wide */
+        header, main, footer {
+          padding: 15px;
+        }
+      }
+
+      @media (min-width: 1201px) {
+        /* Styles for screens wider than 1200px */
+        header, main, footer {
+          padding: 20px;
+        }
+      }
+
+      /* Header */
+      .Logo {
+        background-color: #bde4ed;
+        padding: 10px;
+        text-align: center;
+        color: #023653;
+        font-family: 'Montserrat', sans-serif;
+        font-size: .5em;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 7px;
+        }
+
+
+    /* CSS property for navigation menu */
+    .nav_menu2 {
+      overflow: hidden;
+      display: flex; /* Add flexbox */
+      align-items: center; /* Center vertically */
+      justify-content: center; /* Center horizontally */
+      height: 100px;
+      bottom: 50px;
+      background-color: #ffffff00;
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase; /* Add text-transform property */
+      color: #023653;
+    }
+      
+    
+
+    .nav_menu {
+      overflow: hidden;
+      background-color: #bde4ed;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      border-radius: 6px;
+
+    }
+
+
+    .nav_menu a {
+      float: left;
+      display: block;
+      color: #023653;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .nav_menu a:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+      color: #023653;
+    }
+
+    .nav_menu a.split {
+      float: right;
+      background-color:  #03566d;
+      color: #bfddf1;
+    }
+
+    .nav_menu a.split:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+    }
+
+    .nav_menu a.active {
+      color: #bfddf1;
+    }
+
+    .active {
+      background-color: #03566d;
+    }
+
+    /* Main content */
+
+    main {
+      background-color: #ffffff;
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    .nav_menu a.split {
+      float: right;
+      background-color:  #03566d;
+      color: white;
+    }
+
+    .nav_menu a.split:hover {
+      background-color: rgba(255, 255, 255, 0.458);
+    }
+
+    .active {
+      background-color: #03566d;
+      
+    }
+
+      /* Main content */
+
+      main {
+        background-color: #ffffff;
+        flex: 1;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.2em;
+      }
+
+      
+    footer {
+      background-color: #bde4ed;
+      padding: 10px;
+      min-height: .5vh;
+      text-align: center;
+      font-family: montserrat, san-serif;
+      color: #023653; /* Change the color of the footer text */
+    }
+   
+    footer i {
+      color: #023653; /* Change the color of the footer icons */
+    }
+
+    #maindiv {
+      display:grid;
+     grid-template-rows: 100px,100px,100px,100px,100px,
+                         100px,100px,100px,100px,100px,
+                         100px,100px,100px,100px,100px,
+                         100px,100px,100px,100px,100px;
+     grid-template-columns: 100px,100px,100px,100px,
+                            100px,100px,100px,100px;
+     width:98%;
+   }
+   h3 {
+     text-align: center;
+   }
+   h2 {
+     text-align: center;
+   }
+   #headerdiv{
+      grid-row-start:1;
+      grid-row-end:1;
+      grid-column-start:1;
+      grid-column-end:8;
+      background-color :#f2f2f2
+   }
+
+   #inputdiv{
+      grid-row-start:2;
+      grid-row-end:10;
+      grid-column-start:1;
+      grid-column-end:3;
+      width:400px;
+      padding-left:5px;  
+      height:250px;
+          
+
+      background-color: #ffffff;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      height: 100%;
+      text-align: center;
+      font-family: "Open Sans", sans-serif;
+      box-shadow: 0 0 10px   rgba(0, 0, 0, 0.5);
+      color: #023653;
+      }
+
+
+      #buttonsdiv {
+        grid-row-start: 2;
+        grid-row-end: 10;
+        grid-column-start: 4;
+        grid-column-end: 4;
+        width: 200px;   
+        padding-left: 15px;
+      }
+
+    #cartdiv{
+      grid-row-start: 2;
+      grid-row-end: 19;
+      grid-column-start: 5;
+      grid-column-end: 8;
+      padding-left: 10px;
+      width: 850px;
+      height: 600px;
+     
+      background-color: #ffffff;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      font-family: "Open Sans", sans-serif;
+      color: #023653;
+      box-shadow: 0 0 10px   rgba(0, 0, 0, 0.5);
+      
+           
+
+   }
+
+ 
+   #btnaddtolist {
+    background-color: #03566d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+   }
+   
+   #btnaddtolist:hover {
+    background-color: #023653;
+  }
+
+
+   #btnclearlist {
+    background-color: #03566d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+ }
+
+ #btnclearlist:hover {
+  background-color: #023653;
+}
+
+ #btndelete {
+  background-color: #03566d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+
+#btndelete:hover {
+  background-color: #023653;
+}
+
+
+   #totalamount {
+      text-align: right;
+    
+   }
+   .inputlabel{
+      width: 80px;
+      text-align : right;
+   }
+
+   #itemstable {
+     margin-left:auto;
+     margin-right:auto;
+   }
+   #footerdiv{
+      grid-row-start:20;
+      grid-row-end:20;
+      grid-column-start:1;
+      grid-column-end:8;
+      background-color :#f2f2f2
+   }
+
+   #itemdesc {
+      width: auto;
+   }
+
+   #amountcolumn, #wagecolumn {
+      width: auto;
+   }
+
+   #deductioncolumn, #netpaycolumn {
+    width: auto;
+ }
+
+   #align_right {
+     text-align: right;
+   }
+
+   #tablebody tr:nth-child(even){background-color: #f2f2f2;}
+   #tablebody tr:nth-child(odd){background-color: #bfddf1;}
+
+   input {
+    width:100px;
+    text-align: right;
+    box-sizing: border-box
+    color: #023653;
+    }
+
+   #itemselect {
+    width:120px;
+    text-align: left;
+   }
+
+    </style>
+  
+  </head>
+  <body>
+    
+    
+    <div class="Logo"><h2>Calculator.io</h2></div>
+    
+    <div class="nav_menu">
+        <a href="index.html"><i class="fa fa-fw fa-home"></i></a>
+        <a href="conversion.html">Conversion</a>
+        <a href="tax.html">Income Tax</a>
+        <a href="factorial.html">Finding Nth Factorial</a>
+        <a class="active" href="payroll.html">Simple Payroll</a>
+        <a href="about.html" class="split">About</a>
+    </div>
+
+    <div class="nav_menu2">
+      <h2>Employee Payroll System</h2>
+    </div>
+   
+<main>
+  <div id="maindiv">
+    <div id ="headerdiv">
+  </div>
+
+   <div id="inputdiv">
+
+      <h3>Choose Item</h3>
+      
+      <label class="inputlabel" for="employee_name">Employee Name:</label>
+      <input id ="employee_name" class = "align_right" type="text" placeholder="John Jones"></input>
+      <br>
+      <label class= "inputlabel" for="hourly_rate">Hourly Rate:</labe>
+      <input id="hourly_rate" class="align_right" type="number" placeholder="90.0"></input>
+      <br>
+      <label class="inputlabel" for="hours_worked">Hours Worked:</label>
+      <input id="hours_worked" class="align_right" type="number" placeholder="12"></input>
+      <br>
+      <label class="inputlabel" for="deduction">Deduction Amount:</label>
+      <input id="deduction" class="align_right" type="number" placeholder="100.00"></input>
+
+   </div>
+
+   <div id="buttonsdiv">
+       <button id="btnaddtolist">Add Employee</button>
+       <br><br>
+       <button id="btnclearlist">Clear List</button> 
+   </div>
+   <div id="cartdiv">
+      <h3>List of Employee</h3>
+      <table id="itemstable" border=1>
+          <thead>
+              <tr>
+                  <td>Employee No.</td>
+                  <td id="itemdesc">Employee Name</td>
+                  <td>Hours Worked</td>
+                  <td id="wagecolumn">Hourly Rate</td>
+                  <td id="amountcolumn">Gross Pay</td>
+                  <td id="deductioncolumn">Deduction</td>
+                  <td id="netpaycolumn">Net Pay</td>
+              </tr>
+          </thead>
+          <tbody id="tablebody">
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>Total</td>
+                  <td id="totalamount"></td>
+              </tr>
+          </tfoot>
+
+      </table>
+      <br><br>
+          <label class="inputline" for="items">No. of Employees:</label>
+            <input id="items"  type="number" readonly></input>
+            
+            <label class="inputline" for="delitem">Delete Employee:</label>
+            <input id="delitem" type="number"></input>
+            <button id="btndelete">Delete</button>
+            
+     </div>
+  </div>
+
+
+  <!-- Simple pop-up dialog box, containing a form THIS IS NOT DISPLAYED BY DEFAULT -->
+  <!--  this is only displayed by dlgConfirmCancel.showModal() -->
+  <!-- The value assigned to the button is retrieved by e.target.returnvalue -->
+
+  <dialog id="dlgConfirmCancel">
+      <form method="dialog">
+         <h4 id="dlgmsg"></h4>   
+         <button id="btnConfirm" value="confirm">Confirm</button>
+         <button id="btnCancel" value="cancel">Cancel</button>
+         
+      </form>
+  </dialog>
+
+  <dialog id="dlgAreYouSure">
+      <form method="dialog">
+         <h4 id="dlgmsg2">Are you sure?</h4>   
+         <button id="btnYes" value="yes" >Yes</button>
+         <button id="btnNo" value="no" >No</button>
+         
+      </form>
+  </dialog>
+
+  <script type="text/javascript">
+    // Function to calculate decimal places
+    function CalculateDecimal(v, x) {
+      var rvalue;
+  
+      if (isNaN(v)) {
+        rvalue = NaN;
+      } else {
+        rvalue = parseFloat(v.toFixed(x));
+      }
+  
+      return rvalue;
+    }
+  
+    // Employee list
+    var employeeList = [];
+  
+    // Function to initialize the employee list
+    function initEmployeeList() {
+      employeeList = [];
+      showEmployeeList();
+    }
+  
+    // Function to add an employee to the list
+    function addEmployee() {
+      var employee = {
+        "name": document.getElementById("employee_name").value,
+        "hourlyRate": document.getElementById("hourly_rate").value * 1,
+        "hoursWorked": document.getElementById("hours_worked").value * 1,
+        "deduction": document.getElementById("deduction").value * 1,
+        "grossPay": function () {
+          return this.hourlyRate * this.hoursWorked;
+        },
+        "netPay": function () {
+          return this.grossPay() - this.deduction;
+        }
+      };
+  
+      employeeList.push(employee);
+      showEmployeeList();
+      clearInputFields();
+    }
+  
+    // Function to delete an employee from the list
+    function deleteEmployee() {
+      var indexToDelete = document.getElementById("delitem").value * 1;
+      if (indexToDelete && indexToDelete <= employeeList.length) {
+        employeeList.splice(indexToDelete - 1, 1);
+        showEmployeeList();
+        clearInputFields();
+      } else {
+        alert("Invalid index to delete.");
+      }
+    }
+  
+    // Function to show the employee list
+    function showEmployeeList() {
+      var tbody = "";
+      var totalNetPay = 0;
+  
+      for (var i = 0; i < employeeList.length; i++) {
+        var ln = i + 1;
+        var emp = employeeList[i];
+  
+        tbody += "<tr>" +
+          '<td>' + ln + ' </td>' +
+          '<td>' + emp.name + ' </td>' +
+          '<td style="text-align:right">' + CalculateDecimal(emp.hoursWorked, 0) + '</td>' +
+          '<td style="text-align:right">' + CalculateDecimal(emp.hourlyRate, 2) + '</td>' +
+          '<td style="text-align:right">' + CalculateDecimal(emp.grossPay(), 2) + '</td>' +
+          '<td style="text-align:right">' + CalculateDecimal(emp.deduction, 2) + '</td>' +
+          '<td style="text-align:right">' + CalculateDecimal(emp.netPay(), 2) + '</td>' +
+          "</tr>";
+  
+        totalNetPay += emp.netPay();
+      }
+  
+      document.getElementById("tablebody").innerHTML = tbody;
+      document.getElementById("items").value = employeeList.length;
+      document.getElementById("totalamount").innerHTML = CalculateDecimal(totalNetPay, 2);
+    }
+  
+    // Function to clear input fields
+    function clearInputFields() {
+      document.getElementById("employee_name").value = "";
+      document.getElementById("hourly_rate").value = "";
+      document.getElementById("hours_worked").value = "";
+      document.getElementById("deduction").value = "";
+    }
+  
+    // Event listeners
+    document.getElementById("btnaddtolist").addEventListener("click", function () {
+      // Use a simple confirmation dialog
+      var confirmed = confirm("Add this employee to the list?");
+      if (confirmed) {
+        addEmployee();
+      }
+    });
+  
+    document.getElementById("btnclearlist").addEventListener("click", function () {
+      // Use a simple confirmation dialog
+      var confirmed = confirm("Clear the payroll list?");
+      if (confirmed) {
+        initEmployeeList();
+      }
+    });
+  
+    document.getElementById("btndelete").addEventListener("click", function () {
+      var indexToDelete = document.getElementById("delitem").value;
+      if (indexToDelete && indexToDelete <= employeeList.length) {
+        // Use a simple confirmation dialog
+        var confirmed = confirm("Delete this employee?");
+        if (confirmed) {
+          deleteEmployee();
+        }
+      } else {
+        alert("Invalid index to delete.");
+      }
+    });
+  </script>
+      </main>
+
+      <footer>
+        <p>@mokichino</p>
+        <i class="fa fa-fw fa-facebook"></i>
+        <i class="fa fa-fw fa-instagram"></i>
+        <i class="fa fa-fw fa-twitter"></i>
+        <i class="fa fa-fw fa-github"></i>
+      </footer>
+    </body>
+    </html>
